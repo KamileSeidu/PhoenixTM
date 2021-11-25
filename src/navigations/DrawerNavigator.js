@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Icon} from 'react-native-elemnets';
+import {HomeStack} from './StackNavigators'
+import { AntDesign } from '@expo/vector-icons';
 import {colors} from '../global/styles';
 
 
@@ -11,15 +12,12 @@ export default function DrawerNavigator(){
         <Drawer.Navigator>
             <Drawer.Screen 
                 name = 'HomeStack'
-                component = {Homestack}
+                component = {HomeStack}
                 options = {{
                     title: 'Home',
                     drawerIcon: ({focussed,size}) =>
-                    <Icon type ='material-community' 
-                          name = 'home'
-                          color = {focussed?'#7cc' :colors.grey2}
-                          size = {size} />,
-                
+                    <AntDesign name="home" size={24} color="black" />,
+                   
               headerShown : false
                 }}
 
