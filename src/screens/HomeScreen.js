@@ -9,8 +9,9 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 import { colors,parameters } from '../global/styles'
 import { filterData,carsAround } from '../global/data'
 import { mapStyle} from "../global/mapStyle"
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
 
 const [latlng,setLatLng] = useState({})
@@ -71,9 +72,11 @@ useEffect(()=>{
                     <View style ={styles.view1}>
                         <View  style ={styles.view8}>
                             <Text style ={styles.text2}>Try not to become a man of success. Rather become a man of value.</Text>
-                            <View style ={styles.button1}>
+                            <TouchableOpacity 
+                                onPress = {()=>{navigation.navigate('RequestScreen')}}
+                                style ={styles.button1}>
                                 <Text style = {styles.button1Text}>Deliver With BossIt</Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View>
                             <Image 
