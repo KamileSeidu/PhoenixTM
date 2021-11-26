@@ -106,23 +106,8 @@ useEffect(()=>{
                             )}
                         />
                     </View>
-                    <View style ={styles.view3}>
-                        <Text style ={styles.text3}> Where to ?</Text>  
-                        <View style ={styles.view4}>
-                            <Icon type = "material-community"
-                                name ="clock-time-four"
-                                color = {colors.grey1}
-                                size = {26}
-                             /> 
-                             <Text style ={{marginLeft:5}}>Now</Text> 
-                             <Icon type = "material-community"
-                                name ="chevron-down"
-                                color = {colors.grey1}
-                                size = {26}
-                             />  
-                        </View>     
-                    </View>
-                    <View style ={styles.view5}>
+                   
+                    <TouchableOpacity style ={{...styles.view5,borderBottomWidth:0}}>
                         <View style ={styles.view6}>
                             <View style ={styles.view7}>
                                 <Icon type = "material-community"
@@ -132,8 +117,8 @@ useEffect(()=>{
                                 />
                             </View>
                             <View>
-                                <Text style ={{fontSize:18,color:colors.black}}>32 Olivia Rd</Text>
-                                <Text style ={{color:colors.grey3}}>Klipfontein 83-Ir, Boksburg</Text>
+                                <Text style ={{fontSize:18,color:colors.black}}>Fidelity Bank</Text>
+                                <Text style ={{color:colors.grey3}}>Dzorwulu Branch</Text>
                             </View>
                         </View>
                         <View>
@@ -143,30 +128,7 @@ useEffect(()=>{
                                         size = {26}
                                     />
                             </View>
-                    </View>
-
-                    <View style ={{...styles.view5,borderBottomWidth:0}}>
-                        <View style ={styles.view6}>
-                            <View style ={styles.view7}>
-                                <Icon type = "material-community"
-                                    name ="map-marker"
-                                    color = {colors.black}
-                                    size = {22}
-                                />
-                            </View>
-                            <View>
-                                <Text style ={{fontSize:18,color:colors.black}}>32 Olivia Rd</Text>
-                                <Text style ={{color:colors.grey3}}>Klipfontein 83-Ir, Boksburg</Text>
-                            </View>
-                        </View>
-                        <View>
-                            <Icon type = "material-community"
-                                        name ="chevron-right"
-                                        color = {colors.grey}
-                                        size = {26}
-                                    />
-                            </View>
-                    </View>  
+                    </TouchableOpacity>  
 
                     <Text style ={styles.text4}> Around you</Text>
 
@@ -178,7 +140,10 @@ useEffect(()=>{
                             customMapStyle ={mapStyle}
                             showsUserLocation ={true}
                             followsUserLocation = {true}
-                            initialRegion = {{...carsAround[0],latitudeDelta:0.008,longitudeDelta:0.008}}
+                            initialRegion = {{latitude: 5.614818,
+                                longitude: -0.205874,
+                                latitudeDelta: 0.008,
+                                longitudeDelta: 0.008,}}
                            
                         >
                             {carsAround.map((item,index)=>

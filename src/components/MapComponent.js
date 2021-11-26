@@ -14,17 +14,25 @@ export default class MapComponent extends Component {
                             customMapStyle ={mapStyle}
                             showsUserLocation ={true}
                             followsUserLocation = {true}
+                            initialRegion={
+                                {
+                                latitude: 5.614818,
+                                longitude: -0.205874,
+                                latitudeDelta: 0.008,
+                                longitudeDelta: 0.008,
+                            }
+                            }
                             // initialRegion = {{...carsAround[0],latitudeDelta:0.008,longitudeDelta:0.008}}
                            
                         >
                             {/* {carsAround.map((item,index)=>
                             // <MapView.Marker coordinate = {item} key= {index.toString()}>
-                            //     <Image 
+                            //     <Image 7.9465° N, and longitude of 1.0232°
                             //         source = {require('../../assets/carMarker.png')}
                             //         style ={styles.carsAround}
                             //         resizeMode = "cover"
                             //     />
-                            // </MapView.Marker> */}
+                        // </MapView.Marker> */} 
 {/*                             
                             ) */}
 
