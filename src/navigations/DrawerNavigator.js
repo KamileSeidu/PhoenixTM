@@ -15,10 +15,16 @@ export default function DrawerNavigator(){
                 component = {HomeStack}
                 options = {{
                     title: 'Home',
-                    drawerIcon: ({focussed,size}) =>
-                    <AntDesign name="home" size={24} color="black" />,
-                   
+                    drawerIcon: ({focussed,size}) => 
+                    <AntDesign 
+                        name="home" 
+                        size={24} 
+                        color= {focussed ? '#7cc' : colors.grey2} 
+                        size = {size}
+                        />,
+                        
               headerShown : false
+              
                 }}
 
             />

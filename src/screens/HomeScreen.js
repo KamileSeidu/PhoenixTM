@@ -63,7 +63,15 @@ useEffect(()=>{
                           name ="menu"
                           color = {colors.white}
                           size = {40}
+                          onPress={() =>{
+                              navigation.toggleDrawer()
+                            }}
                     />
+                </View>
+                <View style={{marginLeft: 200, marginTop:10 }}>
+                    <Text style={{color: 'white', fontSize: 30,}}>
+                        BossIt
+                    </Text>
                 </View>
             </View>
             <ScrollView bounces ={false}>
@@ -179,7 +187,8 @@ const styles = StyleSheet.create({
     header:{
       backgroundColor:colors.blue,
       height:parameters.headerHeight,
-      alignItems:"flex-start"
+      alignItems:"flex-start",
+      flexDirection: "row",
      
     },
     
