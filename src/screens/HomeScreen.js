@@ -4,6 +4,7 @@ import { StyleSheet, Text, View,Dimensions ,ScrollView,Image,FlatList} from 'rea
 import { Icon} from 'react-native-elements'
 import MapView, { PROVIDER_GOOGLE,} from 'react-native-maps'; 
 import * as Location from 'expo-location';
+import DeliveryForm from './DeliveryForm';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 import { colors,parameters } from '../global/styles'

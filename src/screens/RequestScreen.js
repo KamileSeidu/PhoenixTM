@@ -2,8 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import MapComponent from '../components/MapComponent';
 import {colorts, parameters} from '../global/styles';
+import DeliveryForm from './DeliveryForm';
 
-export default function RequestScreen() {
+export default function RequestScreen({navigation}) {
     return (
         <View style={styles.container}>
             <MapComponent/>
@@ -15,7 +16,9 @@ export default function RequestScreen() {
                         Pricing
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.viewContainer}>
+                <TouchableOpacity 
+                    onPress = {()=>{navigation.navigate('DeliveryForm')}}
+                    style={styles.viewContainer}>
                     <Text style={{fontSize: 20, fontWeight: 'bold'}}>
                         Delivery Form
                     </Text>
