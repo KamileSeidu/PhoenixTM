@@ -18,7 +18,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier":"com.uberclone",
+      "bundleIdentifier":"com.bossit",
       "config":{
         "googleMapsApiKey" :"KEY"
       }
@@ -29,7 +29,7 @@
         "backgroundColor": "#FFFFFF"
       },
 
-    "package":"com.uberclone",
+    "package":"com.bossit",
     "config" :{
       "googleMaps":{
         "apiKey":"KEY"

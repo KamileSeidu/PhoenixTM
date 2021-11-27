@@ -87,12 +87,12 @@ useEffect(()=>{
                                 <Text style = {styles.button1Text}>Deliver With BossIt</Text>
                             </TouchableOpacity>
                         </View>
-                        <View>
+                        {/* <View>
                             <Image 
                                 style ={styles.image1}
                                 source = {require('../../assets/uberCar.png')}
                             />
-                        </View>
+                        </View> */}
                     </View>
                 </View>
 
