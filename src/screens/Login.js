@@ -1,21 +1,44 @@
-import React from 'react'
-import { StyleSheet, Text, SafeAreaView, View, TextInput, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react'
+import { StyleSheet, Text, SafeAreaView, View, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const Login = ({navigation}) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    // const handleSignUp = () => {
+    //     auth
+    //         .createUserWithEmailAndPassword(email, password)
+    //         .then(userCredentials => {
+    //             const user = userCredentials.user;
+    //             console.log(user.email);
+    //         })
+    //         .catch(error => alert(error.message));
+    // }
+
     return (
         <SafeAreaView style={{backgroundColor: 'dodgerblue', flex: 1}}>
+            <KeyboardAvoidingView behavior='padding'>
                 <View style={{marginTop: 100, justifyContent: 'center', alignItems: 'center'}}>
                     <Text style={{color: 'white', fontSize:30}}>Log in</Text>
                 </View>
 
                 <View style={{flexDirection: 'row', backgroundColor: 'white', borderRadius: 10, width: 300, marginLeft: 30, marginTop: 20, padding: 10}}>
                     <MaterialIcons name="email" size={24} color="grey" style={{paddingLeft: 10}} />
-                    <TextInput placeholder="E-mail" style={{paddingLeft: 10}}/>
+                    <TextInput 
+                        placeholder="E-mail" 
+                        value={email}
+                        onChangeText={text => setEmail(text)}
+                        style={{paddingLeft: 10}}/>
                 </View>
                 <View style={{flexDirection: 'row', backgroundColor: 'white', borderRadius: 10, width: 300, marginLeft: 30, marginTop: 20, padding: 10}}>
                     <MaterialIcons name="security" size={24} color="grey" style={{paddingLeft: 10}} />
-                    <TextInput placeholder="Password" secureTextEntry={true} style={{paddingLeft: 10}}/>
+                    <TextInput 
+                        placeholder="Password"
+                        value={password}
+                        onChangeText = {text => setPassword(text)} 
+                        secureTextEntry={true} 
+                        style={{paddingLeft: 10}}/>
                 </View>
 
                 <TouchableOpacity 
@@ -43,6 +66,7 @@ const Login = ({navigation}) => {
                         BossIt
                     </Text>
                 </View>
+            </KeyboardAvoidingView>
                
         </SafeAreaView>
     )
