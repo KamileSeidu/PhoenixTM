@@ -8,13 +8,16 @@ import Promotion from '../screens/Promotion'
 import Help from '../screens/Help'
 import AboutUs from '../screens/AboutUs'
 import {colors} from '../global/styles';
+import DrawerContent from '../components/DrawerContent'
 
 
 const Drawer = createDrawerNavigator()
 
 export default function DrawerNavigator(){
     return(
-        <Drawer.Navigator>
+        <Drawer.Navigator
+                drawerContent= {props =><DrawerContent {...props} />}
+                >
             <Drawer.Screen 
                 name = 'HomeStack'
                 component = {HomeStack}

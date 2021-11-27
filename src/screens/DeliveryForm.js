@@ -46,7 +46,7 @@ const DeliveryForm = () => {
                 </View>
             </View>
             <View style={{marginTop: 10,}}>
-                <Text style={styles.textContainer}> Reciever's Phone Number</Text>
+                <Text style={styles.textContainer}> Receiver's Phone Number</Text>
                 <View style={styles.inputContainer}>
                         <TextInput placeholder="0557148772"keyboardType='numeric'
                                 maxLength={10} style={{paddingLeft: 10}}/>
