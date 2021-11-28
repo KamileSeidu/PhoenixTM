@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet, Text, SafeAreaView, View, TextInput, TouchableOpacity} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { auth } from '../../firebase';
 
 
 const SignUp = ({navigation}) => {
@@ -9,15 +10,24 @@ const SignUp = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    // const handleSignUp = () => {
-    //     auth
-    //         .createUserWithEmailAndPassword(email, password)
-    //         .then(userCredentials => {
-    //             const user = userCredentials.user;
-    //             console.log(user.email);
-    //         })
-    //         .catch(error => alert(error.message));
-    // }
+    useEffect(() => {
+        const unsubscribe =  auth.onAuthStateChanged(user => {
+            if (user) {
+                navigation.navigate("HomeScreen")
+            }
+        })
+        return unsubscribe
+    }, [])
+
+    const handleSignUp = () => {
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log(user.email);
+            })
+            .catch(error => alert(error.message));
+    }
 
     return (
         <SafeAreaView style={{backgroundColor: 'dodgerblue', flex: 1}}>
@@ -25,10 +35,10 @@ const SignUp = ({navigation}) => {
                     <Text style={{color: 'white', fontSize:30}}>Sign Up</Text>
                 </View>
 
-                <View style={{flexDirection: 'row', backgroundColor: 'white', borderRadius: 10, width: 300, marginLeft: 30, marginTop: 20, padding: 10}}>
+                {/* <View style={{flexDirection: 'row', backgroundColor: 'white', borderRadius: 10, width: 300, marginLeft: 30, marginTop: 20, padding: 10}}>
                     <AntDesign name="user" size={24} color="grey" style={{paddingLeft: 10}} />
                     <TextInput placeholder="Name" style={{paddingLeft: 10}}/>
-                </View>
+                </View> */}
                 <View style={{flexDirection: 'row', backgroundColor: 'white', borderRadius: 10, width: 300, marginLeft: 30, marginTop: 20, padding: 10}}>
                     <MaterialIcons name="email" size={24} color="grey" style={{paddingLeft: 10}} />
                     <TextInput 
@@ -48,7 +58,7 @@ const SignUp = ({navigation}) => {
                 </View>
 
                 <TouchableOpacity 
-                     onPress = {()=>{navigation.navigate('HomeScreen')}}
+                     onPress = {handleSignUp}
                     style={{marginTop: 40, height: 50, width: 300, backgroundColor: 'orange', 
                     marginLeft: 30, borderRadius:100, justifyContent: 'center', alignItems: 'center'}}>
                     <Text style={{color: 'black', fontSize: 20}}>

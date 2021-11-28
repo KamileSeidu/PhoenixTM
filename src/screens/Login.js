@@ -1,20 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet, Text, SafeAreaView, View, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { auth } from '../../firebase'
 
 const Login = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    // const handleSignUp = () => {
-    //     auth
-    //         .createUserWithEmailAndPassword(email, password)
-    //         .then(userCredentials => {
-    //             const user = userCredentials.user;
-    //             console.log(user.email);
-    //         })
-    //         .catch(error => alert(error.message));
-    // }
+    useEffect(() => {
+        const unsubscribe =  auth.onAuthStateChanged(user => {
+            if (user) {
+                navigation.navigate("HomeScreen")
+            }
+        })
+        return unsubscribe
+    }, [])
+
+    const handleLogin = () => {
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log(user.email);
+            })
+            .catch(error => alert(error.message));
+    }
 
     return (
         <SafeAreaView style={{backgroundColor: 'dodgerblue', flex: 1}}>
@@ -42,7 +52,7 @@ const Login = ({navigation}) => {
                 </View>
 
                 <TouchableOpacity 
-                    onPress = {()=>{navigation.navigate('HomeScreen')}}
+                    onPress = {handleLogin}
                     style={{marginTop: 40, height: 50, width: 300, backgroundColor: 'orange', 
                     marginLeft: 30, borderRadius:100, justifyContent: 'center', alignItems: 'center'}}>
                     <Text style={{color: 'black', fontSize: 20}}>
